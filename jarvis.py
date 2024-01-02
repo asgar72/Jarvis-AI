@@ -216,7 +216,7 @@ class MainThread(QThread):
 
             else:
                 print("Do you have any other work")
-                # speak("Do you have any other work")
+                speak("Do you have any other work")
 
 
 startExecution = MainThread()
