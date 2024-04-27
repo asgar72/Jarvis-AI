@@ -154,7 +154,8 @@ class MainThread(QThread):
 
             
             elif'open code' in self.query:
-                codePath = "C:\\Users\\Asghar abbas\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+                # codePath = "C:\\Users\\Asghar abbas\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+                codePath = os.path.join(os.environ["APPDATA"], "Local", "Programs", "Microsoft VS Code", "Code.exe")
                 os.startfile(codePath)
     
             elif'command prompt' in self.query or 'open cmd' in self.query:
@@ -227,16 +228,29 @@ class Main(QMainWindow):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.ui.pushButton.clicked.connect(self.startTask)
-        self.ui.pushButton_2.clicked.connect(self.close)
+        self.ui.pushButton_4.clicked.connect(self.startTask)
+        self.ui.pushButton_3.clicked.connect(self.close)
 
     def startTask(self):
-        self.ui.movie = QtGui.QMovie("D:/Jarvis AI/7LP81.gif")
+        self.ui.movie = QtGui.QMovie("../Jarvis AI/new Des/7LP8.gif")
         self.ui.label.setMovie(self.ui.movie)
         self.ui.movie.start()
-        self.ui.movie = QtGui.QMovie("D:/Jarvis AI/T8bahf1.gif")        
+        self.ui.movie = QtGui.QMovie("../Jarvis AI/new Des/start_stop.jpeg")        
         self.ui.label_2.setMovie(self.ui.movie)
         self.ui.movie.start()
+        self.ui.movie = QtGui.QMovie("../Jarvis AI/new Des/T8bahf1.gif")        
+        self.ui.label_4.setMovie(self.ui.movie)
+        self.ui.movie.start()
+        self.ui.movie = QtGui.QMovie("../Jarvis AI/new Des/codes.gif")        
+        self.ui.label_5.setMovie(self.ui.movie)
+        self.ui.movie.start()
+        self.ui.movie = QtGui.QMovie("../Jarvis AI/T8bahf.gif")        
+        self.ui.label_6.setMovie(self.ui.movie)
+        self.ui.movie.start()
+        self.ui.movie = QtGui.QMovie("../Jarvis AI/new Des/ai.gif")        
+        self.ui.label_7.setMovie(self.ui.movie)
+        self.ui.movie.start()
+
         timer = QTimer(self)
         timer.timeout.connect(self.showTime)
         timer.start(1000)
@@ -247,8 +261,8 @@ class Main(QMainWindow):
         current_date = QDate.currentDate()
         label_time = current_time.toString('hh:mm:ss')
         label_date = current_date.toString(Qt.ISODate)
-        self.ui.textBrowser.setText(label_date)
-        self.ui.textBrowser_2.setText(label_time)
+        self.ui.textBrowser.setText(label_time)
+        self.ui.textBrowser_2.setText(label_date)
 
 
 app = QApplication([])
